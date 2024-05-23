@@ -1,0 +1,398 @@
+@use "../../../styles/mixin";
+
+.section-one-content {
+  padding: 5rem;
+  text-align: center;
+  background-color: var(--color-ghost-white);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: content-box;
+  .heading-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    .left-section {
+      display: flex;
+      width: 50%;
+    }
+    .right-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+    }
+    h2 {
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: normal;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      span {
+        opacity: 0;
+        display: inline-flex;
+      }
+      &.active {
+        opacity: 1;
+        span {
+          &:nth-of-type(1) {
+            @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+          }
+          &:nth-of-type(2) {
+            @include mixin.animate-fadeInUp(1s, 650ms, 2rem);
+          }
+        }
+      }
+    }
+    h3 {
+      font-size: 1.52rem;
+      font-weight: 400;
+
+      &.active {
+        @include mixin.animate-fadeInUp(800ms, 400ms, 4rem);
+      }
+    }
+  }
+  .card-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 3rem 0;
+    gap: 1rem;
+    .card {
+      background-color: var(--color-white);
+      border-radius: 20px;
+      box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 8%);
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      flex: 1 1 50%;
+      align-self: stretch;
+      .text-section {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        flex: 1 1 50%;
+        .top-section {
+          button {
+            font-size: 1rem;
+            background-color: var(--color-sunglow-yellow);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 6px 0px var(--color-light-grey);
+            opacity: 0.5;
+            transform: scale(0.7);
+            &.active {
+              opacity: 1;
+              @include mixin.animate-scaleUp(1s, 1, "center", 100ms, 0.7);
+            }
+          }
+        }
+        .bottom-section {
+          margin-top: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          opacity: 0;
+          h3 {
+            font-size: 3rem;
+            font-weight: 400;
+          }
+          p {
+            font-size: 1.2rem;
+            color: var(--color-philippine-silver);
+          }
+          &.active {
+            @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+          }
+        }
+      }
+      .stats-section {
+        margin: 20px 0 0;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--color-bright-grey-2);
+        border-top-left-radius: 20px;
+        border-right: 0;
+        border-bottom: 0;
+        padding: 20px;
+        flex: 1 1 50%;
+        h3 {
+          font-weight: 500;
+        }
+        .profit-and-visitors-section {
+          display: flex;
+          margin: 2rem 0 1rem;
+          gap: 2rem;
+          opacity: 0;
+          &.active {
+            @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+          }
+          .profit-section {
+            display: flex;
+            gap: 10px;
+            img {
+              width: 60px;
+              height: 60px;
+            }
+            .text {
+              display: flex;
+              flex-direction: column;
+              gap: 0.8rem;
+              .title {
+                font-size: 1rem;
+                color: var(--color-dark-grey-2);
+              }
+              .value {
+                font-size: 2rem;
+                font-weight: 500;
+              }
+            }
+          }
+          .visitors-section {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-anti-flash-white);
+            padding: 20px;
+            border-radius: 10px;
+            gap: 5px;
+            width: 150px;
+            .bar {
+              width: 100%;
+              height: 4px;
+              background-color: var(--color-chinese-white);
+              border-radius: 10px;
+              overflow: hidden;
+              .bar-progress {
+                height: 100%;
+                background-color: var(--color-emerald-green);
+                transition: width 5s ease-in;
+                width: 0;
+                &.active {
+                  animation: progress 2s linear forwards;
+                }
+              }
+            }
+            .value {
+              font-size: 2rem;
+              span {
+                display: inline-block;
+                width: 40px;
+              }
+              sup {
+                font-size: 0.8rem;
+                display: inline-flex;
+                margin-left: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                color: var(--color-emerald-green);
+                opacity: 0;
+                &.active {
+                  @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+                }
+                svg {
+                  width: 1rem;
+                  height: 1rem;
+                  path {
+                    fill: var(--color-emerald-green);
+                  }
+                }
+              }
+            }
+          }
+        }
+        .graph-section {
+          display: flex;
+          border: 1px solid var(--color-chinese-white);
+          border-radius: 20px;
+          padding: 20px;
+          position: relative;
+          flex-direction: column;
+          opacity: 0;
+
+          &.active {
+            @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+          }
+          > h5 {
+            font-size: 0.8rem;
+            margin: 0;
+            font-weight: 500;
+          }
+          .static-rate-card {
+            display: flex;
+            position: absolute;
+            background-color: var(--color-orange);
+            border-radius: 10px;
+            padding: 10px;
+            gap: 1rem;
+            bottom: 20px;
+            right: 20px;
+            width: 125px;
+            .left-section {
+              display: flex;
+              flex-direction: column;
+              gap: 0.8rem;
+              color: var(--color-white);
+              > p {
+                font-size: 0.8rem;
+              }
+              > h3 {
+                font-size: 2rem;
+                font-weight: 400;
+              }
+            }
+            .right-section {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              svg {
+                width: 1rem;
+                height: 1rem;
+                path {
+                  fill: var(--color-white);
+                }
+              }
+            }
+          }
+        }
+      }
+      .sub-card {
+        background-color: var(--color-chinese-black);
+        border-radius: 2rem;
+        border: 1px solid var(--color-dark-charcoal);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        .layers-icon {
+          width: 2rem;
+          height: 2rem;
+          path {
+            fill: var(--color-sunglow-yellow);
+          }
+        }
+        .avatar-section {
+          display: flex;
+          gap: 10px;
+          .avatar-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--color-black);
+            &:nth-of-type(2) {
+              margin-left: -1rem;
+            }
+          }
+        }
+        h2 {
+          font-size: 4rem;
+          font-weight: 400;
+          position: relative;
+          sup {
+            position: absolute;
+            right: -10px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            margin-left: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color: var(--color-emerald-green);
+            top: -20px;
+
+            svg {
+              width: 1.5rem;
+              height: 1.5rem;
+              background: var(--color-white);
+              border-radius: 50%;
+              path {
+                fill: var(--color-emerald-green);
+              }
+            }
+          }
+        }
+      }
+      &.dark {
+        background-color: var(--color-black);
+        color: var(--color-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-direction: column;
+        padding: 2rem;
+        .sub-card-wrapper {
+          display: flex;
+          gap: 1rem;
+          .sub-card {
+            opacity: 0;
+            &.one {
+              transform: translateX(4rem);
+              &.active {
+                @include mixin.animate-translateRight(1s, 400ms, 4rem);
+              }
+            }
+            &.two {
+              transform: translateX(-2rem);
+              &.active {
+                @include mixin.animate-translateLeft(1s, 400ms, -4rem);
+              }
+            }
+          }
+        }
+        .title-section {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          h3 {
+            font-size: 2rem;
+            font-weight: 400;
+          }
+          p {
+            font-size: 1.5rem;
+            color: var(--color-gray);
+          }
+        }
+      }
+    }
+  }
+
+  .efficiency {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    .title {
+      font-size: 2rem;
+      .percentage {
+        font-size: 8rem;
+      }
+    }
+    .description {
+      font-size: 1.2rem;
+      text-align: left;
+      opacity: 0;
+      &.active {
+        @include mixin.animate-fadeInUp(1s, 400ms, 2rem);
+      }
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 54%;
+  }
+}

@@ -1,0 +1,148 @@
+@use "../../styles/mixin";
+.footer-section {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 4rem;
+  margin-top: 10rem;
+
+  .menu-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--color-dark-grey);
+    padding-bottom: 4rem;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      li {
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          color: var(--color-quick-silver);
+          font-size: 2rem;
+        }
+      }
+    }
+    .contact a {
+      text-decoration: none;
+      color: var(--color-white);
+      font-size: 5rem;
+    }
+  }
+
+  .contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .locations {
+      display: flex;
+
+      .location {
+        margin-right: 60px;
+        h3 {
+          margin-bottom: 10px;
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+        p {
+          margin: 0;
+          font-size: 1.5rem;
+          color: var(--color-dark-grey);
+        }
+      }
+    }
+
+    .social-media {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+      a {
+        text-decoration: none;
+        color: var(--color-white);
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+
+    .logo h1 {
+      font-size: 12rem;
+      font-weight: 500;
+      margin: 0;
+      .word {
+        display: inline-flex;
+        overflow: hidden;
+      }
+      sup {
+        font-size: 4rem;
+      }
+    }
+
+    .policies {
+      display: flex;
+      gap: 8rem;
+      a {
+        text-decoration: none;
+        color: var(--color-dark-grey);
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    .qr-code {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 8rem;
+      height: 8rem;
+      border-radius: 1.5rem;
+      background-color: var(--color-white);
+      padding: 0.5rem;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  &.active {
+    .menu-items {
+      ul {
+        li {
+          @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+        }
+      }
+      .contact {
+        @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+      }
+    }
+    .location,
+    .social-media {
+      @include mixin.animate-fadeInUp(1s, 600ms, 5rem);
+    }
+    .qr-code {
+      @include mixin.animate-scaleUp(600ms, 1, "center", 200ms);
+    }
+    .logo {
+      .word {
+        span {
+          @include mixin.animate-fadeInUp(1s, 200ms, 5rem);
+          @include mixin.item-delays(10, 200);
+        }
+      }
+      sup {
+        @include mixin.animate-fadeInUp(1s, 700ms, 5rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "../../../styles/mixin";
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  width: 400px;
+  background-color: var(--color-white);
+  box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 8%);
+  border-radius: 2rem;
+  padding: 1.5rem 1.5rem;
+  p {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  button {
+    background-color: var(--color-anti-flash-white);
+    border: none;
+    padding: 10px;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--color-quick-silver);
+  }
+
+  &.active {
+    &:nth-of-type(1) {
+      @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+    }
+    &:nth-of-type(2) {
+      @include mixin.animate-fadeInUp(1s, 600ms, 5rem);
+    }
+    &:nth-of-type(3) {
+      @include mixin.animate-fadeInUp(1s, 800ms, 5rem);
+    }
+  }
+}

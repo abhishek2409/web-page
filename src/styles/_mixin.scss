@@ -1,0 +1,136 @@
+@mixin animate-fadeInUp($duration: 1s, $delay: 0s, $translateY: 20px) {
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY($translateY);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  opacity: 0;
+  animation: fadeInUp $duration ease-out $delay forwards;
+}
+
+@mixin animate-scaleUp(
+  $duration: 1s,
+  $scaleFactor: 1,
+  $transformOrigin: center,
+  $delay: 0s,
+  $from: 0,
+  $keyframeName: "scaleUp"
+) {
+  @keyframes #{$keyframeName} {
+    0% {
+      transform: scale(#{$from});
+    }
+    100% {
+      transform: scale(#{$scaleFactor});
+    }
+  }
+
+  transform: scale(#{$from});
+  transform-origin: (#{$transformOrigin});
+  animation: #{$keyframeName} $duration ease-in-out $delay forwards;
+}
+
+@mixin animate-rotateUp(
+  $duration: 1s,
+  $rotateFactor: 1,
+  $transformOrigin: center,
+  $delay: 0s
+) {
+  @keyframes rotateUp {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(#{$rotateFactor});
+    }
+  }
+
+  transform: rotate(0deg);
+  transform-origin: (#{$transformOrigin});
+  animation: rotateUp $duration ease-in-out $delay forwards;
+}
+
+@mixin animate-rotate-and-scale-up(
+  $duration: 1s,
+  $rotateFactor: 1,
+  $scaleFactor: 1,
+  $transformOrigin: center,
+  $delay: 0s
+) {
+  @keyframes rotateAndScaleUp {
+    0% {
+      transform: rotate(-360deg) scale(0);
+    }
+    100% {
+      transform: rotate(#{$rotateFactor}) scale(#{$scaleFactor});
+    }
+  }
+
+  transform: rotate(-360deg) scale(0);
+  transform-origin: (#{$transformOrigin});
+  animation: rotateAndScaleUp $duration ease-in-out $delay forwards;
+}
+
+@mixin animate-translateLeft($duration: 1s, $delay: 0s, $from: -100%) {
+  @keyframes translateLeft {
+    0% {
+      opacity: 0;
+      transform: translateX($from);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  opacity: 0;
+  transform: translateX($from);
+  animation: translateLeft $duration ease-in-out $delay forwards;
+}
+
+@mixin animate-translateRight($duration: 1s, $delay: 0s, $from: 100%) {
+  @keyframes translateRight {
+    0% {
+      opacity: 0;
+      transform: translateX($from);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  opacity: 0;
+  transform: translateX($from);
+  animation: translateRight $duration ease-in-out $delay forwards;
+}
+
+@mixin animate-widthScaleUp(
+  $duration: 1s,
+  $delay: 0s,
+  $to: 100%,
+  $name: "widthScaleUp"
+) {
+  @keyframes #{$name} {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: #{$to};
+    }
+  }
+  width: 0;
+  animation: #{$name} $duration ease-in-out $delay forwards;
+}
+
+@mixin item-delays($count, $delay: 0.05) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) {
+      animation-delay: ($i - 1) * $delay * 1ms;
+    }
+  }
+}

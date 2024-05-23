@@ -1,0 +1,90 @@
+@use "../../../styles/mixin";
+
+.section-five-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  .link-icon {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--color-orange);
+    border-radius: 3rem;
+    box-shadow: 0px 5px 15px 0px rgba($color: var(--color-orange), $alpha: 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.5);
+    svg {
+      width: 3rem;
+      height: 3rem;
+      path {
+        fill: var(--color-white);
+      }
+    }
+  }
+  h2 {
+    font-size: 8rem;
+    font-weight: 500;
+    .word {
+      display: inline-flex;
+      overflow: hidden;
+    }
+  }
+  p {
+    font-size: 1.5rem;
+    color: var(--color-dark-grey-2);
+    text-align: center;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+      font-size: 0.9rem;
+      border: none;
+      padding: 1rem;
+      border-radius: 1rem;
+      width: 200px;
+      &.secondary {
+        background-color: var(--color-anti-flash-white);
+      }
+      &.primary {
+        background-color: var(--color-orange);
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &.active {
+    .link-icon {
+      opacity: 1;
+      @include mixin.animate-scaleUp(
+        1s,
+        1,
+        "center",
+        200ms,
+        1.5,
+        "iconZoomOut"
+      );
+    }
+    h2 {
+      .word {
+        span {
+          @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+          @include mixin.item-delays(10, 100);
+        }
+      }
+    }
+    p {
+      @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+    }
+    .btn {
+      @include mixin.animate-scaleUp(1s, 1, "center", 200ms, 0.5);
+    }
+  }
+}

@@ -1,0 +1,268 @@
+@use "../../../styles/mixin";
+
+.tablet {
+  position: absolute;
+  right: -10vw;
+  top: 0;
+  border: 3rem solid var(--color-smoky-black);
+  width: 50vw;
+  height: max(80vh, 700px);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 0;
+  overflow: hidden;
+  .content {
+    background-color: var(--color-white);
+    border-radius: 20px;
+    margin: -10px;
+    position: relative;
+    height: 100%;
+    .menu-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      background-color: var(--color-smoky-black);
+      color: var(--color-white);
+      border-radius: 20px;
+      margin: 1rem;
+      .logo {
+        margin-left: 1rem;
+      }
+      .search-box {
+        display: flex;
+        background-color: var(--color-raisin-black);
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        padding: 15px;
+        min-width: 300px;
+        svg {
+          path {
+            fill: var(--color-white);
+          }
+          width: 1rem;
+          height: 1rem;
+        }
+        input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: var(--color-white);
+          margin-left: 10px;
+        }
+      }
+    }
+    .graph-section {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 1rem 0;
+      > p {
+        font-size: 0.7rem;
+        color: var(--color-phillippine-grey);
+      }
+      .value {
+        font-size: 4rem;
+        font-weight: 400;
+        color: var(--color-black);
+        position: relative;
+        > span {
+          font-size: 60%;
+        }
+        sup {
+          position: absolute;
+          font-size: 0.8rem;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          color: var(--color-emerald-green);
+          svg {
+            width: 1rem;
+            height: 1rem;
+            path {
+              fill: var(--color-emerald-green);
+            }
+          }
+        }
+      }
+      .dummy-graph {
+        display: flex;
+        width: 100%;
+        height: 150px;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+        margin-top: 5rem;
+        transition: height 0.5s ease-in-out;
+        .dummy-data {
+          width: 100px;
+          background-color: var(--color-orange);
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          position: relative;
+          border: 1px solid var(--color-portland-orange);
+          flex: 1;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            background-color: var(--color-anti-flash-white);
+            width: 100%;
+            height: 40%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: -1;
+            margin-bottom: -5px;
+          }
+        }
+      }
+    }
+    main {
+      display: flex;
+      background-color: var(--color-anti-flash-white);
+      flex-direction: column;
+      .tabs-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-platinum);
+        border-radius: 10px;
+        min-width: 300px;
+        margin: 1rem auto;
+        gap: 1rem;
+
+        .tab {
+          font-size: 0.8rem;
+          padding: 10px;
+          border-radius: 10px;
+          &.active {
+            background-color: var(--color-white);
+          }
+        }
+      }
+      .statistics-section {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+        h5 {
+          font-size: 0.9rem;
+          font-weight: 400;
+        }
+        .sales-card {
+          padding: 10px 0;
+          display: flex;
+          flex-direction: column;
+          border-radius: 20px;
+          background-color: var(--color-white);
+          flex: 1 1 50%;
+          h5 {
+            margin-bottom: 5px;
+          }
+          .sales-sub-card-wrapper {
+            display: flex;
+            margin: 0 auto;
+            gap: 2rem;
+
+            .sales-sub-card {
+              display: flex;
+              justify-content: space-between;
+              gap: 1rem;
+              p {
+                font-size: 0.7rem;
+                color: var(--color-raisin-black);
+              }
+              .icon {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                background-color: var(--color-orange);
+                box-shadow: 0px 5px 10px var(--color-orange);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                svg {
+                  width: 10px;
+                  height: 10px;
+                  path {
+                    fill: var(--color-white);
+                  }
+                }
+              }
+              &.yellow {
+                .icon {
+                  background-color: var(--color-sunglow-yellow);
+                  box-shadow: 0px 5px 10px var(--color-sunglow-yellow);
+                }
+              }
+              &.green {
+                .icon {
+                  background-color: var(--color-emerald-green);
+                  box-shadow: 0px 5px 10px var(--color-emerald-green);
+                }
+              }
+            }
+          }
+          .bar-wrapper {
+            display: flex;
+            width: calc(100% - 3rem);
+            margin: 2rem;
+            gap: 5px;
+            .bar-content {
+              display: flex;
+              flex-direction: column;
+              p {
+                font-size: 0.6rem;
+                margin-bottom: 5px;
+                color: var(--color-phillippine-grey);
+                &:nth-of-type(2) {
+                  color: var(--color-black);
+                  font-weight: 400;
+                }
+              }
+              .bar {
+                height: 5px;
+                border-radius: 10px;
+                width: 100%;
+              }
+              &.yellow {
+                width: 20%;
+                .bar {
+                  background-color: var(--color-sunglow-yellow);
+                }
+              }
+              &.green {
+                width: 30%;
+                .bar {
+                  background-color: var(--color-emerald-green);
+                }
+              }
+              &.purple {
+                width: 50%;
+                .bar {
+                  background-color: var(--color-blue-voilet);
+                }
+              }
+            }
+          }
+        }
+        .visits-card {
+          display: flex;
+          flex-direction: column;
+          border-radius: 20px;
+          background-color: var(--color-white);
+          flex: 1 1 50%;
+          padding: 0 10px;
+          padding: 10px;
+          h5 {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+  }
+}

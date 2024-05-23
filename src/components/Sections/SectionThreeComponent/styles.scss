@@ -1,0 +1,116 @@
+@use "../../../styles/mixin";
+.section-three-content {
+  padding: 5rem;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  width: calc(100% - 10rem);
+  position: relative;
+  .content {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    .top-section {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .left-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    h1 {
+      font-size: 4rem;
+      font-weight: 400;
+      overflow: hidden;
+      span {
+        display: inline-block;
+      }
+      &.active {
+        span {
+          @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+          @include mixin.item-delays(10, 200);
+        }
+      }
+    }
+    .card-container {
+      margin-top: 4rem;
+    }
+  }
+  .right-section {
+    position: relative;
+    width: 50%;
+    display: flex;
+    .phone {
+      position: absolute;
+      left: -25%;
+      bottom: -50%;
+      z-index: 1;
+      height: 800px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+      &.active {
+        @include mixin.animate-fadeInUp(1s, 400ms, 5rem);
+      }
+    }
+  }
+  .large-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20rem;
+    color: var(--color-orange);
+    h1 {
+      font-weight: 500;
+      .word {
+        display: inline-flex;
+        overflow: hidden;
+      }
+    }
+    &.active {
+      .word {
+        span {
+          @include mixin.animate-fadeInUp(1s, 600ms, 10rem);
+          @include mixin.item-delays(10, 200);
+        }
+      }
+    }
+  }
+  &::before {
+    background-color: var(--color-ghost-white);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 1;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: var(--color-ghost-white);
+    background-image: linear-gradient(
+        to right,
+        var(--color-bright-grey) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--color-bright-grey) 1px, transparent 1px);
+    background-size: 100px 100px;
+    z-index: 0;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
+}
