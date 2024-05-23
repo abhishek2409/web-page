@@ -149,7 +149,7 @@
                 height: 5px;
                 border-radius: 5px;
                 &.green {
-                  background-color: var9--color-emerald-green;
+                  background-color: var(--color-emerald-green);
                 }
                 &.yellow {
                   background-color: var(--color-sunglow-yellow);
